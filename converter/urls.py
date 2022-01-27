@@ -7,5 +7,4 @@ urlpatterns = [
     path('', report, name='report'),
     path('api/ratelist/', RateList.as_view(), name='rate_list'),
     path('api/rate/<date>', RateDetail.as_view(), name='rate_detail'),
-
 ]

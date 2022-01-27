@@ -13,7 +13,7 @@ import datetime
 import requests
 import logging
 from converter.models import Rate
-# from decouple import config
+
 
 logger = logging.Logger('Celery_logger', level=logging.DEBUG)
 handler_1 = logging.FileHandler('celery.log')
@@ -21,7 +21,7 @@ handler_2 = logging.StreamHandler()
 logger.addHandler(handler_1),
 logger.addHandler(handler_2)
 
-# api = config['API_KEY']
+
 api = 'f1f3cd1115354997b6ec29dffcd66ff7'
 
 
@@ -38,7 +38,7 @@ def set_periodic(sender, **kwrags) -> None:
     :param kwrags:
     """
     sender.add_periodic_task(
-        crontab(hour=14, minute=8),
+        crontab(hour=19, minute=15),
         check_updates.s()
         # fill_db.s()
     )
