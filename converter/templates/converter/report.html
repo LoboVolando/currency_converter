@@ -1,0 +1,17 @@
+{% load static %}
+
+{% block content %}
+    <div id="main" class="product-list">
+        <br>
+        <h1>
+            Currency converter
+        </h1>
+        <h2>Date: {{date}}</h2>
+        <form action="" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Submit"></p>
+        </form>
+        <h3>Result: {{result}} Exchange: {{exchange_rate}}</h3>
+    </div>
+{% endblock %}
