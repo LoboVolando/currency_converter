@@ -39,8 +39,8 @@ def set_periodic(sender, **kwrags) -> None:
     """
     sender.add_periodic_task(
         crontab(hour=13, minute=10),
-        # check_updates.s()
-        fill_db.s()
+        check_updates.s()
+        # fill_db.s()
     )
 
 
