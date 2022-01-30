@@ -38,9 +38,9 @@ def set_periodic(sender, **kwrags) -> None:
     :param kwrags:
     """
     sender.add_periodic_task(
-        crontab(hour=19, minute=15),
-        check_updates.s()
-        # fill_db.s()
+        crontab(hour=13, minute=10),
+        # check_updates.s()
+        fill_db.s()
     )
 
 
@@ -70,6 +70,7 @@ def fill_db() -> None:
     dates = [datetime.datetime.strftime(datetime.datetime.today() - datetime.timedelta(days=index), '%Y-%m-%d')
              for index in range(26, 0, -1)]
     for date in dates:
+        print('Request sent')
         r = requests.Session()
         path = f'https://openexchangerates.org/api/historical/{date}.json?app_id={api}&symbols=EUR,PLN,CZK'
 
